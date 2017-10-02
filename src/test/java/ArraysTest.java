@@ -16,6 +16,15 @@ public class ArraysTest {
         };
     }
 
+    @DataProvider
+    public Object[][] provider11() {
+        return new Object[][]{
+                {new int[]{1, 2, 11}, 0, 1},
+                {new int[]{1, 4}, 0, 0},
+                {new int[]{11, 14, 11}, 0, 2},
+        };
+    }
+
     @BeforeMethod
     public void before() {
         arrays = new Arrays();
@@ -25,6 +34,15 @@ public class ArraysTest {
     public void testArray6(int[] array, int beginIndex, boolean expected) throws Exception {
         // Given
         boolean result = arrays.array6(array, beginIndex);
+
+        // Then
+        assertEquals(result, expected);
+    }
+
+    @Test(dataProvider = "provider11")
+    public void testArray11(int[] array, int beginIndex, int expected) throws Exception {
+        // Given
+        int result = arrays.array11(array, beginIndex);
 
         // Then
         assertEquals(result, expected);
