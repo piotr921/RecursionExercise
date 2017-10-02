@@ -26,6 +26,15 @@ public class CountDigitsTest {
         };
     }
 
+    @DataProvider
+    public Object[][] providerText() {
+        return new Object[][]{
+                {"xxhixx", 4},
+                {"xhixhix", 3},
+                {"hi", 0},
+        };
+    }
+
     @BeforeMethod
     public void before(){
         countDigits = new CountDigits();
@@ -44,6 +53,15 @@ public class CountDigitsTest {
     public void testCount8(int number, int expectedResult) throws Exception {
         // When
         int result = countDigits.count8(number);
+
+        // Then
+        assertEquals(result, expectedResult);
+    }
+
+    @Test(dataProvider = "providerText")
+    public void testCount8(String text, int expectedResult) throws Exception {
+        // When
+        int result = countDigits.countX(text);
 
         // Then
         assertEquals(result, expectedResult);
