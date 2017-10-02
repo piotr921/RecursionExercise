@@ -17,6 +17,15 @@ public class BunnyEarsTest {
         };
     }
 
+    @DataProvider
+    public Object[][] provider2() {
+        return new Object[][]{
+                {0, 0},
+                {1, 2},
+                {2, 5},
+        };
+    }
+
     @BeforeMethod
     public void before() {
         bunnyEars = new BunnyEars();
@@ -31,4 +40,12 @@ public class BunnyEarsTest {
         assertEquals(result, expectedResult);
     }
 
+    @Test(dataProvider = "provider2")
+    public void testBunnyEars2(int bunnies, int expectedResult) throws Exception {
+        // When
+        int result = bunnyEars.bunnyEars2(bunnies);
+
+        // Then
+        assertEquals(result, expectedResult);
+    }
 }
