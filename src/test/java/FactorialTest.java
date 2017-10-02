@@ -4,9 +4,9 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class Recursion1Test {
+public class FactorialTest {
 
-    private Recursion1 recursionObject;
+    private Factorial recursionObject;
 
     @DataProvider
     public Object[][] provider() {
@@ -19,7 +19,7 @@ public class Recursion1Test {
 
     @BeforeMethod
     public void before() {
-        recursionObject = new Recursion1();
+        recursionObject = new Factorial();
     }
 
     @Test(dataProvider = "provider")
