@@ -26,6 +26,15 @@ public class ChangeTextTest {
         };
     }
 
+    @DataProvider
+    public Object[][] providerNoX() {
+        return new Object[][]{
+                {"xaxb", "ab"},
+                {"pipi", "pipi"},
+                {"xx", ""},
+        };
+    }
+
     @BeforeMethod
     public void before() {
         changeText = new ChangeText();
@@ -44,6 +53,15 @@ public class ChangeTextTest {
     public void testChangePi(String text, String expectedResult) throws Exception {
         // When
         String result = changeText.changePi(text);
+
+        // Then
+        assertEquals(result, expectedResult);
+    }
+
+    @Test(dataProvider = "providerNoX")
+    public void testChangeNoX(String text, String expectedResult) throws Exception {
+        // When
+        String result = changeText.noX(text);
 
         // Then
         assertEquals(result, expectedResult);
