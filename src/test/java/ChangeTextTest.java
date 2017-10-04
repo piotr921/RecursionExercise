@@ -35,6 +35,26 @@ public class ChangeTextTest {
         };
     }
 
+    @DataProvider
+    public Object[][] providerAllStar() {
+        return new Object[][]{
+                {"hello", "h*e*l*l*o"},
+                {"abc", "a*b*c"},
+                {"ab", "a*b"},
+                {"", ""},
+        };
+    }
+
+    @DataProvider
+    public Object[][] providerPairStar() {
+        return new Object[][]{
+                {"hello", "hel*lo"},
+                {"xxyy", "x*xy*y"},
+                {"aaaa", "a*a*a*a"},
+                {"", ""},
+        };
+    }
+
     @BeforeMethod
     public void before() {
         changeText = new ChangeText();
@@ -67,4 +87,21 @@ public class ChangeTextTest {
         assertEquals(result, expectedResult);
     }
 
+    @Test(dataProvider = "providerAllStar")
+    public void testAllStar(String text, String expectedResult) throws Exception {
+        // When
+        String result = changeText.allStar(text);
+
+        // Then
+        assertEquals(result, expectedResult);
+    }
+
+    @Test(dataProvider = "providerPairStar")
+    public void testPairStar(String text, String expectedResult) throws Exception {
+        // When
+        String result = changeText.pairStar(text);
+
+        // Then
+        assertEquals(result, expectedResult);
+    }
 }

@@ -29,4 +29,22 @@ class ChangeText {
             return str.charAt(0) + noX(str.substring(1));
         }
     }
+
+    String allStar(String str) {
+        if (str.length() <= 1) {
+            return str;
+        } else {
+            return str.charAt(0) + "*" + allStar(str.substring(1));
+        }
+    }
+
+    String pairStar(String str) {
+        if (str.length() < 2) {
+            return str;
+        } else if (str.charAt(0) == str.charAt(1)) {
+            return str.charAt(0) + "*" + pairStar(str.substring(1));
+        } else {
+            return str.charAt(0) + pairStar(str.substring(1));
+        }
+    }
 }
