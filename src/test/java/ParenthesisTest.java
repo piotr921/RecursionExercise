@@ -18,6 +18,15 @@ public class ParenthesisTest {
         };
     }
 
+    @DataProvider
+    public Object[][] providerNest() {
+        return new Object[][]{
+                {"(())", true},
+                {"((()))", true},
+                {"(((x))", false},
+        };
+    }
+
     @BeforeMethod
     public void before() {
         parenthesis = new Parenthesis();
@@ -32,4 +41,12 @@ public class ParenthesisTest {
         assertEquals(result, expected);
     }
 
+    @Test(dataProvider = "providerNest")
+    public void testParenNest(String text, boolean expected) throws Exception {
+        // When
+        boolean result = parenthesis.nestParen(text);
+
+        // Then
+        assertEquals(result, expected);
+    }
 }
