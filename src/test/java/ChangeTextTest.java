@@ -65,6 +65,17 @@ public class ChangeTextTest {
         };
     }
 
+    @DataProvider
+    public Object[][] providerClear() {
+        return new Object[][]{
+                {"yyzzza", "yza"},
+                {"abbbcdd", "abcd"},
+                {"Hello","Helo"},
+                {"", ""},
+                {"Hello Bookkeeper", "Helo Bokeper"}
+        };
+    }
+
     @BeforeMethod
     public void before() {
         changeText = new ChangeText();
@@ -119,6 +130,15 @@ public class ChangeTextTest {
     public void testEndX(String text, String expectedResult) throws Exception {
         // When
         String result = changeText.endX(text);
+
+        // Then
+        assertEquals(result, expectedResult);
+    }
+
+    @Test(dataProvider = "providerClear")
+    public void testClear(String text, String expectedResult) throws Exception {
+        // When
+        String result = changeText.stringClean(text);
 
         // Then
         assertEquals(result, expectedResult);
