@@ -54,6 +54,15 @@ public class CountDigitsTest {
         };
     }
 
+    @DataProvider
+    public Object[][] providerStrCount() {
+        return new Object[][]{
+                {"catcowcat", "cat", 2},
+                {"catcowcat", "cow", 1},
+                {"catcowcat", "dog", 0},
+        };
+    }
+
     @BeforeMethod
     public void before(){
         countDigits = new CountDigits();
@@ -102,5 +111,14 @@ public class CountDigitsTest {
 
         // Then
         assertEquals(result, expectedResult);
+    }
+
+    @Test(dataProvider = "providerStrCount")
+    public void strCountTest(String text, String word, int expected) {
+        // When
+        int result = countDigits.strCount(text, word);
+
+        // Then
+        assertEquals(result, expected);
     }
 }
