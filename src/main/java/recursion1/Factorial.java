@@ -1,3 +1,5 @@
+package recursion1;
+
 class Factorial {
 
     int factorial(int n) {

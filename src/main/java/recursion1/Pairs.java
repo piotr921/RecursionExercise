@@ -1,3 +1,5 @@
+package recursion1;
+
 class Pairs {
 
     int countPairs(String str) {

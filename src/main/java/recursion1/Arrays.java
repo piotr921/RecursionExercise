@@ -1,3 +1,5 @@
+package recursion1;
+
 class Arrays {
 
     boolean array6(int[] nums, int index) {

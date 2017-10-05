@@ -1,31 +1,35 @@
+package recursion1;
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import recursion1.SumDigits;
 
 import static org.testng.Assert.*;
 
-public class TriangleTest {
+public class SumDigitsTest {
 
-    private Triangle triangle;
+    private SumDigits sumDigits;
 
     @DataProvider
     public Object[][] provider() {
         return new Object[][]{
-                {0, 0},
-                {1, 1},
-                {2, 3},
+                {126, 9},
+                {49, 13},
+                {12, 3},
+                {10, 1},
         };
     }
 
     @BeforeMethod
-    public void before() {
-        triangle = new Triangle();
+    public void before(){
+        sumDigits = new SumDigits();
     }
 
     @Test(dataProvider = "provider")
-    public void testTriangle(int rows, int expectedResult) throws Exception {
+    public void testSumDigits(int n, int expectedResult) throws Exception {
         // When
-        int result = triangle.triangle(rows);
+        int result = sumDigits.sumDigits(n);
 
         // Then
         assertEquals(result, expectedResult);

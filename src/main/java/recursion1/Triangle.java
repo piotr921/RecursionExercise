@@ -1,3 +1,5 @@
+package recursion1;
+
 class Triangle {
 
     int triangle(int rows) {

@@ -1,3 +1,5 @@
+package recursion1;
+
 class PowerN {
 
     int powerN(int base, int n) {

@@ -1,3 +1,5 @@
+package recursion1;
+
 class BunnyEars {
 
     int bunnyEars(int bunnies) {

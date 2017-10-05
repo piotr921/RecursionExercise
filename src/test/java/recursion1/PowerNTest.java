@@ -1,33 +1,37 @@
+package recursion1;
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import recursion1.PowerN;
 
 import static org.testng.Assert.assertEquals;
 
-public class FactorialTest {
+public class PowerNTest {
 
-    private Factorial recursionObject;
+    private PowerN powerN;
 
     @DataProvider
     public Object[][] provider() {
         return new Object[][]{
-                {1, 1},
-                {2, 2},
-                {3, 6},
+                {3, 1, 3},
+                {3, 2, 9},
+                {3, 3, 27},
         };
     }
 
     @BeforeMethod
     public void before() {
-        recursionObject = new Factorial();
+        powerN = new PowerN();
     }
 
     @Test(dataProvider = "provider")
-    public void testFactorial(int level, int expectedResult) throws Exception {
+    public void testPowerN(int base, int n, int expected) throws Exception {
         // When
-        int result = recursionObject.factorial(level);
+        int result = powerN.powerN(base, n);
 
         // Then
-        assertEquals(result, expectedResult);
+        assertEquals(result, expected);
     }
+
 }
