@@ -38,9 +38,19 @@ public class CountDigitsTest {
     @DataProvider
     public Object[][] providerHi() {
         return new Object[][]{
-//                {"xxhixx", 1},
+                {"xxhixx", 1},
                 {"xhixhix", 2},
-//                {"hi", 1},
+                {"hi", 1},
+        };
+    }
+
+    @DataProvider
+    public Object[][] providerHi2() {
+        return new Object[][]{
+                {"ahixhi", 1},
+                {"ahibhi", 2},
+                {"xhixhi", 0},
+                {"hixhhi", 2},
         };
     }
 
@@ -80,6 +90,15 @@ public class CountDigitsTest {
     public void testCountHi(String text, int expectedResult) throws Exception {
         // When
         int result = countDigits.countHi(text);
+
+        // Then
+        assertEquals(result, expectedResult);
+    }
+
+    @Test(dataProvider = "providerHi2")
+    public void testCountHi2(String text, int expectedResult) throws Exception {
+        // When
+        int result = countDigits.countHi2(text);
 
         // Then
         assertEquals(result, expectedResult);

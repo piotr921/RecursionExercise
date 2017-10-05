@@ -1,7 +1,9 @@
 public class Tmp {
 
     public static void main(String[] args) {
-        String string = "abc";
-        System.out.println(string.indexOf(" "));
+        String text = "abcdef";
+        System.out.println(text.substring(0, 2));
+        System.out.println(text.charAt(2));
+        System.out.println(text.substring(3));
     }
 }
