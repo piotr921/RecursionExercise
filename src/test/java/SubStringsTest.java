@@ -33,6 +33,7 @@ public class SubStringsTest {
                 {"catcowcat", "cat", 9},
                 {"catcowcat", "cow", 3},
                 {"cccatcowcatxx", "cat", 9},
+                {"xyx", "z",  0}
         };
     }
 
@@ -60,7 +61,7 @@ public class SubStringsTest {
     }
 
     @Test(dataProvider = "providerStrLength")
-    public void strCountCopies(String text, String word, int expected) {
+    public void strCountDist(String text, String word, int expected) {
         // When
         int result = subStrings.strDist(text, word);
 
