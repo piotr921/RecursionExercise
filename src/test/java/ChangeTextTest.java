@@ -55,6 +55,16 @@ public class ChangeTextTest {
         };
     }
 
+    @DataProvider
+    public Object[][] providerEndX() {
+        return new Object[][]{
+                {"xxre", "rexx"},
+                {"xxhixx", "hixxxx"},
+                {"xhixhix","hihixxx"},
+                {"", ""}
+        };
+    }
+
     @BeforeMethod
     public void before() {
         changeText = new ChangeText();
@@ -100,6 +110,15 @@ public class ChangeTextTest {
     public void testPairStar(String text, String expectedResult) throws Exception {
         // When
         String result = changeText.pairStar(text);
+
+        // Then
+        assertEquals(result, expectedResult);
+    }
+
+    @Test(dataProvider = "providerEndX")
+    public void testEndX(String text, String expectedResult) throws Exception {
+        // When
+        String result = changeText.endX(text);
 
         // Then
         assertEquals(result, expectedResult);
